@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FROZENBERG — Official Hub of Rosenberg Raw</title>
+  <meta name="description" content="The official hub of battle rapper Rosenberg Raw — FROZENBERG. Battles, music, FrozenbergTV, and merch. The coldest pen in the game." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Six+Caps&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>❄️</text></svg>" />
+</head>
+<body>
+
+  <!-- ══════════ LOADER ══════════ -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-word">
+      <span class="loader-letters">FROZENBERG</span>
+      <span class="loader-frost"></span>
+    </div>
+  </div>
+
+  <!-- ══════════ NAV ══════════ -->
+  <header id="nav">
+    <a class="nav-logo" href="#top">
+      <span class="logo-flake">❄</span>
+      <span class="logo-word">FROZENBERG</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#rapper">The Rapper</a>
+      <a href="#battles">Battles</a>
+      <a href="#tv">FrozenbergTV</a>
+      <a href="#channels">Channels</a>
+      <a href="#merch" class="nav-merch">Merch</a>
+    </nav>
+    <button id="nav-burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <main id="top">
+
+    <!-- ══════════ HERO ══════════ -->
+    <section id="hero">
+      <canvas id="ice-canvas" aria-hidden="true"></canvas>
+      <div class="hero-haze" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <p class="hero-kicker reveal">THE OFFICIAL HUB OF ROSENBERG RAW</p>
+        <h1 class="hero-title" aria-label="FROZENBERG">
+          <span class="hero-line" data-text="FROZEN">FROZEN</span><span class="hero-line hero-line-alt" data-text="BERG">BERG</span>
+        </h1>
+        <p class="hero-tag reveal">BODIES ON ICE. <span class="tag-cold">BARS BELOW ZERO.</span></p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-ice" href="#battles">▶&nbsp; Watch the Battles</a>
+          <a class="btn btn-ghost" href="#channels">All Channels</a>
+        </div>
+      </div>
+
+      <div class="hero-bottom" aria-hidden="true">
+        <div class="scroll-cue"><span></span></div>
+        <p class="hero-coord">610 · PENNSYLVANIA · EST. ON STAGE</p>
+      </div>
+      <div class="frost-corner frost-tl" aria-hidden="true"></div>
+      <div class="frost-corner frost-tr" aria-hidden="true"></div>
+    </section>
+
+    <!-- ══════════ MARQUEE ══════════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>FROZENBERG ❄ ROSENBERG RAW ❄ THE COLDEST IN THE GAME ❄ 610 ❄ BATTLE RAP ❄ </span><span>FROZENBERG ❄ ROSENBERG RAW ❄ THE COLDEST IN THE GAME ❄ 610 ❄ BATTLE RAP ❄ </span>
+      </div>
+    </div>
+
+    <!-- ══════════ THE RAPPER ══════════ -->
+    <section id="rapper" class="section">
+      <div class="section-head reveal">
+        <p class="section-kicker">01 — THE RAPPER</p>
+        <h2 class="section-title">BUILT IN THE <span class="ice-text">COLD</span></h2>
+      </div>
+      <div class="rapper-grid">
+        <figure class="rapper-portrait reveal" id="portrait-frame">
+          <div class="portrait-media" data-asset="portrait">
+            <!-- Drop Seedream portrait at /public/assets/portrait.jpg to replace -->
+            <div class="portrait-placeholder">
+              <span class="portrait-flake">❄</span>
+              <p>PORTRAIT<br/>INCOMING</p>
+            </div>
+          </div>
+          <figcaption class="portrait-plate">ROSENBERG RAW — “FROZENBERG”</figcaption>
+          <div class="portrait-glow" aria-hidden="true"></div>
+        </figure>
+        <div class="rapper-copy">
+          <p class="reveal rapper-lede" id="bio-lede">Out of the 610, Rosenberg Raw carved his name into battle rap the hard way — round for round, stage after stage, no cosign needed.</p>
+          <p class="reveal" id="bio-body">Now the pen turns glacial. FROZENBERG is the next chapter: same raw, colder delivery. This is the one place where every battle, every drop, and every channel comes together.</p>
+          <ul class="rapper-stats reveal" id="stat-row">
+            <li><strong data-count="0" id="stat-battles">—</strong><span>Battles</span></li>
+            <li><strong data-count="0" id="stat-views">—</strong><span>Views</span></li>
+            <li><strong>610</strong><span>Home Turf</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ BATTLES ══════════ -->
+    <section id="battles" class="section">
+      <div class="section-head reveal">
+        <p class="section-kicker">02 — ON STAGE</p>
+        <h2 class="section-title">THE <span class="ice-text">BATTLES</span></h2>
+        <p class="section-sub">Cold rounds, on demand. Tap in.</p>
+      </div>
+      <div class="battle-grid" id="battle-grid">
+        <!-- battle cards injected by main.js from BATTLES data -->
+      </div>
+    </section>
+
+    <!-- ══════════ FROZENBERG TV ══════════ -->
+    <section id="tv" class="section section-tv">
+      <div class="tv-panel reveal">
+        <div class="tv-copy">
+          <p class="section-kicker">03 — THE CHANNEL</p>
+          <h2 class="section-title"><span class="ice-text">FROZENBERG</span>TV</h2>
+          <p class="section-sub">The new home base. Battles, vlogs, reactions and everything behind the bars — subscribe so you never miss a drop.</p>
+          <a class="btn btn-ice" href="https://www.youtube.com/@FrozenbergTV" target="_blank" rel="noopener">Subscribe on YouTube</a>
+        </div>
+        <div class="tv-screen" data-asset="tv-loop">
+          <!-- Drop a Seedance loop at /public/assets/tv-loop.mp4 to play here -->
+          <div class="tv-static" aria-hidden="true"></div>
+          <span class="tv-play">▶</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ CHANNELS ══════════ -->
+    <section id="channels" class="section">
+      <div class="section-head reveal">
+        <p class="section-kicker">04 — EVERYWHERE</p>
+        <h2 class="section-title">ALL <span class="ice-text">CHANNELS</span></h2>
+        <p class="section-sub">One rapper. Every platform. Zero degrees.</p>
+      </div>
+      <div class="channel-grid" id="channel-grid">
+        <!-- channel cards injected by main.js from CHANNELS data -->
+      </div>
+    </section>
+
+    <!-- ══════════ MERCH ══════════ -->
+    <section id="merch" class="section section-merch">
+      <div class="merch-vault reveal">
+        <div class="vault-fog" aria-hidden="true"></div>
+        <p class="section-kicker">05 — THE VAULT</p>
+        <h2 class="section-title">MERCH <span class="ice-text">ON ICE</span></h2>
+        <p class="section-sub">The FROZENBERG collection is in deep freeze. Thawing soon.</p>
+        <div class="vault-lock" aria-hidden="true">
+          <span class="lock-ring"></span>
+          <span class="lock-flake">❄</span>
+        </div>
+        <p class="vault-note">DROP 001 — COMING SOON</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer id="footer">
+    <div class="footer-word" aria-hidden="true">FROZENBERG</div>
+    <div class="footer-row">
+      <p>© <span id="year"></span> Rosenberg Raw. All rights reserved.</p>
+      <p class="footer-cold">STAY COLD.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
