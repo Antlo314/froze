@@ -32,8 +32,14 @@ npm run build    # production build → dist/
 - **Portrait:** save a 4:5 image as `public/assets/portrait.jpg` — it auto-loads.
 - **TV loop:** save a 16:9 clip as `public/assets/tv-loop.mp4` — it auto-plays on the FrozenbergTV screen.
 
+## Content
+
+Battle catalog and channels are real and verified (VerseTracker, Rap Grid, RBE,
+Let's Talk Battle Rap). Battle cards pull live thumbnails from YouTube and link
+to the full battles. Stats (71 battles · 9M+ views) are from VerseTracker.
+
 ## Roadmap
 
-- [ ] Wire in verified battle catalog + all official channels
-- [ ] Real portrait + motion assets
+- [x] Wire in verified battle catalog + all official channels
+- [ ] Real portrait + motion assets (Seedream / Seedance)
 - [ ] Merch store ("DROP 001")

@@ -5,15 +5,25 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
    DATA — placeholder entries until research lands; edit freely
    ═══════════════════════════════════════════════════════════ */
 
+// Verified battles (YouTube video IDs → real footage thumbnails + watch links)
 const BATTLES = [
-  { league: 'BATTLE', name: 'ROSENBERG RAW', sub: 'Full battle catalog on the way', url: 'https://www.youtube.com/@FrozenbergTV' },
-  { league: 'BATTLE', name: 'COLD ROUNDS', sub: 'Classic matchups being added', url: 'https://www.youtube.com/@FrozenbergTV' },
-  { league: 'BATTLE', name: 'FROZENBERG TV', sub: 'New drops first on the channel', url: 'https://www.youtube.com/@FrozenbergTV' },
+  { id: 'FXqpnjSbhSI', opp: 'CHARLIE CLIPS',  league: 'RBE',            sub: '2023 · 1.4M views' },
+  { id: 'D7i6uTPFdGQ', opp: 'ILL WILL',       league: 'RBE',            sub: 'The King of RBE moment' },
+  { id: '8VHUgoSIHFo', opp: 'BIGG K',         league: 'SMACK / URL',    sub: '2012 · 730K views' },
+  { id: '8m1e5IUuaNA', opp: 'GEECHI GOTTI',   league: 'BATTLE ACADEMY', sub: 'War Ready 4 · Philly' },
+  { id: 'qwGYfHpd-rE', opp: 'ARSONAL',        league: 'RBE',            sub: '2024 · Max Out' },
+  { id: 'MkHD57mu1KE', opp: 'A. WARD',        league: 'RBE',            sub: 'Max Out II' },
+  { id: 'RzCNcb8LHxk', opp: 'CYSSERO',        league: 'RBE',            sub: 'Straight To It · 2022' },
+  { id: 'jrEzKfWnAYg', opp: 'BILL COLLECTOR', league: 'RBE',            sub: '“Frenemies”' },
 ];
 
 const CHANNELS = [
-  { icon: '📺', name: 'FrozenbergTV', handle: '@FrozenbergTV', url: 'https://www.youtube.com/@FrozenbergTV' },
-  { icon: '📸', name: 'Instagram', handle: '@rosenberg_raw610', url: 'https://www.instagram.com/rosenberg_raw610/' },
+  { icon: '📺', name: 'FrozenbergTV',    handle: '@FrozenbergTV',        url: 'https://www.youtube.com/@FrozenbergTV' },
+  { icon: '📸', name: 'Instagram',       handle: '@rosenberg_raw610',    url: 'https://www.instagram.com/rosenberg_raw610/' },
+  { icon: '𝕏',  name: 'X / Twitter',     handle: '@RosenBergRaw610',     url: 'https://x.com/rosenbergraw610' },
+  { icon: '👑', name: 'Rare Breed Ent',  handle: 'RBE — Artist Profile', url: 'https://rarebreedent.webflow.io/artists/rosenberg-raw' },
+  { icon: '📊', name: 'VerseTracker',    handle: '71 battles · 9M views', url: 'https://versetracker.com/rapper/rosenberg-raw' },
+  { icon: '✉️', name: 'Booking',         handle: 'Bgross2131@yahoo.com',  url: 'mailto:Bgross2131@yahoo.com' },
 ];
 
 /* ═══════════ LOADER ═══════════ */
@@ -34,15 +44,15 @@ document.getElementById('year').textContent = new Date().getFullYear();
 /* ═══════════ CARD INJECTION ═══════════ */
 const battleGrid = document.getElementById('battle-grid');
 battleGrid.innerHTML = BATTLES.map(b => `
-  <a class="battle-card reveal" href="${b.url}" target="_blank" rel="noopener" data-tilt>
+  <a class="battle-card reveal" href="https://www.youtube.com/watch?v=${b.id}" target="_blank" rel="noopener" data-tilt>
     <div class="battle-thumb">
-      ${b.thumb ? `<img src="${b.thumb}" alt="" loading="lazy" />` : ''}
-      <span class="battle-vs">VS</span>
+      <img src="https://img.youtube.com/vi/${b.id}/hqdefault.jpg" alt="Rosenberg Raw vs ${b.opp}" loading="lazy" />
+      <span class="battle-scrim"></span>
       <span class="battle-play">▶</span>
     </div>
     <div class="battle-meta">
       <p class="battle-league">${b.league}</p>
-      <p class="battle-name">${b.name}</p>
+      <p class="battle-name">RAW <em>vs</em> ${b.opp}</p>
       <p class="battle-sub">${b.sub}</p>
     </div>
   </a>`).join('');
@@ -84,6 +94,17 @@ const io = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ═══════════ STAT COUNT-UP (verified figures) ═══════════ */
+const statRow = document.getElementById('stat-row');
+if (statRow) {
+  const so = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { setStats({ battles: 71, views: 9065152 }); so.disconnect(); }
+    });
+  }, { threshold: 0.4 });
+  so.observe(statRow);
+}
 
 /* ═══════════ DEVICE PROFILE ═══════════ */
 const IS_MOBILE = matchMedia('(max-width: 768px)').matches || matchMedia('(pointer: coarse)').matches;

@@ -379,12 +379,19 @@ body {
   background: radial-gradient(80% 90% at 50% 20%, #12263f, var(--bg-1));
   overflow: hidden;
 }
-.battle-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease-out), filter 0.6s; }
-.battle-card:hover .battle-thumb img { transform: scale(1.06); filter: saturate(1.15); }
-.battle-vs {
-  position: absolute; inset: 0; display: grid; place-items: center;
-  font-family: var(--mega); font-size: 3.6rem; letter-spacing: 0.05em;
-  color: rgba(223, 244, 255, 0.16);
+.battle-thumb img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(0.85) brightness(0.82) contrast(1.05);
+  transition: transform 0.6s var(--ease-out), filter 0.6s;
+}
+.battle-card:hover .battle-thumb img { transform: scale(1.06); filter: saturate(1.1) brightness(1); }
+/* cold tint + bottom scrim so the meta reads over any thumbnail */
+.battle-scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(4, 7, 13, 0) 40%, rgba(4, 7, 13, 0.75) 100%),
+    linear-gradient(200deg, rgba(103, 232, 249, 0.12), transparent 55%);
+  mix-blend-mode: normal;
 }
 .battle-play {
   position: absolute; right: 0.9rem; bottom: 0.9rem;
@@ -405,6 +412,11 @@ body {
   margin-top: 0.4rem;
   font-family: var(--display); font-size: 1.55rem; letter-spacing: 0.06em;
   color: var(--frost);
+}
+.battle-name em {
+  font-style: normal; color: var(--ice-1);
+  font-size: 0.7em; margin: 0 0.15em;
+  filter: drop-shadow(0 0 8px rgba(103, 232, 249, 0.5));
 }
 .battle-sub { margin-top: 0.2rem; font-size: 0.78rem; color: var(--dim); }
 
