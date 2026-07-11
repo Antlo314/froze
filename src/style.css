@@ -558,6 +558,16 @@ body {
   font-size: 0.72rem; color: var(--dim); letter-spacing: 0.08em;
 }
 .footer-cold { font-family: var(--display); letter-spacing: 0.5em; color: var(--steel); }
+.footer-credit {
+  margin-top: 1.4rem; text-align: center;
+  font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--dim);
+}
+.footer-credit a {
+  color: var(--steel); text-decoration: none; font-weight: 700;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+.footer-credit a:hover { color: var(--ice-2); text-shadow: 0 0 14px rgba(103, 232, 249, 0.6); }
 
 /* ═══════════ REVEAL ANIMATIONS ═══════════ */
 .reveal {
