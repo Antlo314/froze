@@ -1,45 +1,19 @@
-# FROZENBERG — Official Hub of Rosenberg Raw
+# FROSTBERG — Gallery Shell
 
-Cinematic arctic-themed hub site for battle rapper **Rosenberg Raw** ("Frozenberg").
-Centralizes his battles, channels, and (soon) merch in one place.
+Cinematic arctic-themed battle-rap hub **template** for portfolio / gallery demos.
 
-## Stack
+Branding is generic (**FROSTBERG**). All portrait, battle, and video slots are blank placeholders. No real artist data, social links, or YouTube thumbnails.
 
-- **Vite** — dev server + build
-- **Three.js** — WebGL hero (snowfall, drifting smoke, glass ice shards, parallax)
-- Vanilla JS + custom CSS — no framework, mobile-first
-
-## Run it
+## Run
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173
-npm run build    # production build → dist/
+npm run dev
 ```
 
-## Structure
+## Customize
 
-| Path | What |
-|------|------|
-| `index.html` | Page markup — all sections |
-| `src/style.css` | Full cinematic design system |
-| `src/main.js` | WebGL scene + interactions; `BATTLES` / `CHANNELS` data arrays at top |
-| `public/assets/` | Drop-in Seedream/Seedance assets (see the README in that folder) |
-
-## Adding content
-
-- **Battles / channels:** edit the `BATTLES` and `CHANNELS` arrays at the top of `src/main.js`.
-- **Portrait:** save a 4:5 image as `public/assets/portrait.jpg` — it auto-loads.
-- **TV loop:** save a 16:9 clip as `public/assets/tv-loop.mp4` — it auto-plays on the FrozenbergTV screen.
-
-## Content
-
-Battle catalog and channels are real and verified (VerseTracker, Rap Grid, RBE,
-Let's Talk Battle Rap). Battle cards pull live thumbnails from YouTube and link
-to the full battles. Stats (71 battles · 9M+ views) are from VerseTracker.
-
-## Roadmap
-
-- [x] Wire in verified battle catalog + all official channels
-- [ ] Real portrait + motion assets (Seedream / Seedance)
-- [ ] Merch store ("DROP 001")
+- Brand name: search `FROSTBERG` / `Frostberg` in `index.html` + `src/main.js`
+- Battle cards: edit the `BATTLES` array in `src/main.js`
+- Channels: edit the `CHANNELS` array in `src/main.js`
+- Bio / stats: `index.html` artist section

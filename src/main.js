@@ -2,28 +2,27 @@ import * as THREE from 'three';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 /* ═══════════════════════════════════════════════════════════
-   DATA — placeholder entries until research lands; edit freely
+   DATA — gallery shell placeholders (no real media / links)
    ═══════════════════════════════════════════════════════════ */
 
-// Verified battles (YouTube video IDs → real footage thumbnails + watch links)
 const BATTLES = [
-  { id: 'FXqpnjSbhSI', opp: 'CHARLIE CLIPS',  league: 'RBE',            sub: '2023 · 1.4M views' },
-  { id: 'D7i6uTPFdGQ', opp: 'ILL WILL',       league: 'RBE',            sub: 'The King of RBE moment' },
-  { id: '8VHUgoSIHFo', opp: 'BIGG K',         league: 'SMACK / URL',    sub: '2012 · 730K views' },
-  { id: '8m1e5IUuaNA', opp: 'GEECHI GOTTI',   league: 'BATTLE ACADEMY', sub: 'War Ready 4 · Philly' },
-  { id: 'qwGYfHpd-rE', opp: 'ARSONAL',        league: 'RBE',            sub: '2024 · Max Out' },
-  { id: 'MkHD57mu1KE', opp: 'A. WARD',        league: 'RBE',            sub: 'Max Out II' },
-  { id: 'RzCNcb8LHxk', opp: 'CYSSERO',        league: 'RBE',            sub: 'Straight To It · 2022' },
-  { id: 'jrEzKfWnAYg', opp: 'BILL COLLECTOR', league: 'RBE',            sub: '“Frenemies”' },
+  { opp: 'OPPONENT 01', league: 'LEAGUE', sub: 'Year · Placeholder' },
+  { opp: 'OPPONENT 02', league: 'LEAGUE', sub: 'Year · Placeholder' },
+  { opp: 'OPPONENT 03', league: 'LEAGUE', sub: 'Year · Placeholder' },
+  { opp: 'OPPONENT 04', league: 'LEAGUE', sub: 'Year · Placeholder' },
+  { opp: 'OPPONENT 05', league: 'LEAGUE', sub: 'Year · Placeholder' },
+  { opp: 'OPPONENT 06', league: 'LEAGUE', sub: 'Year · Placeholder' },
+  { opp: 'OPPONENT 07', league: 'LEAGUE', sub: 'Year · Placeholder' },
+  { opp: 'OPPONENT 08', league: 'LEAGUE', sub: 'Year · Placeholder' },
 ];
 
 const CHANNELS = [
-  { icon: '📺', name: 'FrozenbergTV',    handle: '@FrozenbergTV',        url: 'https://www.youtube.com/@FrozenbergTV' },
-  { icon: '📸', name: 'Instagram',       handle: '@rosenberg_raw610',    url: 'https://www.instagram.com/rosenberg_raw610/' },
-  { icon: '𝕏',  name: 'X / Twitter',     handle: '@RosenBergRaw610',     url: 'https://x.com/rosenbergraw610' },
-  { icon: '👑', name: 'Rare Breed Ent',  handle: 'RBE — Artist Profile', url: 'https://rarebreedent.webflow.io/artists/rosenberg-raw' },
-  { icon: '📊', name: 'VerseTracker',    handle: '71 battles · 9M views', url: 'https://versetracker.com/rapper/rosenberg-raw' },
-  { icon: '✉️', name: 'Booking',         handle: 'Bgross2131@yahoo.com',  url: 'mailto:Bgross2131@yahoo.com' },
+  { icon: '📺', name: 'FrostbergTV', handle: '@handle', url: '#' },
+  { icon: '📸', name: 'Instagram',   handle: '@handle', url: '#' },
+  { icon: '𝕏',  name: 'X / Twitter', handle: '@handle', url: '#' },
+  { icon: '🎵', name: 'Music',       handle: 'Streaming', url: '#' },
+  { icon: '📊', name: 'Stats',       handle: 'Battles · Views', url: '#' },
+  { icon: '✉️', name: 'Booking',     handle: 'email@example.com', url: '#' },
 ];
 
 /* ═══════════ LOADER ═══════════ */
@@ -41,51 +40,34 @@ nav.querySelectorAll('.nav-links a').forEach(a =>
 
 document.getElementById('year').textContent = new Date().getFullYear();
 
-/* ═══════════ CARD INJECTION ═══════════ */
+/* ═══════════ CARD INJECTION (blank media slots) ═══════════ */
 const battleGrid = document.getElementById('battle-grid');
 battleGrid.innerHTML = BATTLES.map(b => `
-  <a class="battle-card reveal" href="https://www.youtube.com/watch?v=${b.id}" target="_blank" rel="noopener" data-tilt>
-    <div class="battle-thumb">
-      <img src="https://img.youtube.com/vi/${b.id}/hqdefault.jpg" alt="Rosenberg Raw vs ${b.opp}" loading="lazy" />
+  <div class="battle-card reveal" data-tilt>
+    <div class="battle-thumb media-placeholder">
+      <div class="thumb-placeholder">
+        <span class="placeholder-icon">❄</span>
+        <span class="placeholder-caption">IMAGE</span>
+      </div>
       <span class="battle-scrim"></span>
       <span class="battle-play">▶</span>
     </div>
     <div class="battle-meta">
       <p class="battle-league">${b.league}</p>
-      <p class="battle-name">RAW <em>vs</em> ${b.opp}</p>
+      <p class="battle-name">ARTIST <em>vs</em> ${b.opp}</p>
       <p class="battle-sub">${b.sub}</p>
     </div>
-  </a>`).join('');
+  </div>`).join('');
 
 const channelGrid = document.getElementById('channel-grid');
 channelGrid.innerHTML = CHANNELS.map(c => `
-  <a class="channel-card reveal" href="${c.url}" target="_blank" rel="noopener">
+  <a class="channel-card reveal" href="${c.url}">
     <span class="channel-icon">${c.icon}</span>
     <span>
       <span class="channel-name">${c.name}</span><br/>
       <span class="channel-handle">${c.handle}</span>
     </span>
   </a>`).join('');
-
-/* ═══════════ OPTIONAL ASSETS (drop-in) ═══════════ */
-// Portrait: /public/assets/portrait.jpg
-const portraitImg = new Image();
-portraitImg.src = '/assets/portrait.jpg';
-portraitImg.onload = () => {
-  const media = document.querySelector('[data-asset="portrait"]');
-  media.innerHTML = '';
-  portraitImg.alt = 'Rosenberg Raw — Frozenberg';
-  media.appendChild(portraitImg);
-};
-// TV loop: /public/assets/tv-loop.mp4
-fetch('/assets/tv-loop.mp4', { method: 'HEAD' }).then(r => {
-  if (!r.ok) return;
-  const screen = document.querySelector('[data-asset="tv-loop"]');
-  screen.innerHTML = '';
-  const v = document.createElement('video');
-  Object.assign(v, { src: '/assets/tv-loop.mp4', muted: true, loop: true, autoplay: true, playsInline: true });
-  screen.appendChild(v);
-}).catch(() => {});
 
 /* ═══════════ REVEAL ON SCROLL ═══════════ */
 const io = new IntersectionObserver(entries => {
@@ -95,12 +77,12 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: 0.15 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* ═══════════ STAT COUNT-UP (verified figures) ═══════════ */
+/* ═══════════ STAT COUNT-UP (shell placeholders) ═══════════ */
 const statRow = document.getElementById('stat-row');
 if (statRow) {
   const so = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) { setStats({ battles: 71, views: 9065152 }); so.disconnect(); }
+      if (e.isIntersecting) { setStats({ battles: 0, views: 0 }); so.disconnect(); }
     });
   }, { threshold: 0.4 });
   so.observe(statRow);
@@ -304,6 +286,11 @@ tick();
 /* ═══════════ STAT COUNTERS (animated when set) ═══════════ */
 export function setStats({ battles, views }) {
   const animate = (el, target, suffix = '') => {
+    if (!el) return;
+    if (!target) {
+      el.textContent = '—';
+      return;
+    }
     const start = performance.now(), dur = 1400;
     const step = now => {
       const k = Math.min((now - start) / dur, 1);
@@ -312,6 +299,13 @@ export function setStats({ battles, views }) {
     };
     requestAnimationFrame(step);
   };
-  if (battles) animate(document.getElementById('stat-battles'), battles, '+');
-  if (views) animate(document.getElementById('stat-views'), views / 1e6, 'M+');
+  if (battles != null) animate(document.getElementById('stat-battles'), battles, battles ? '+' : '');
+  if (views != null) {
+    const el = document.getElementById('stat-views');
+    if (!views) {
+      if (el) el.textContent = '—';
+    } else {
+      animate(el, views / 1e6, 'M+');
+    }
+  }
 }
